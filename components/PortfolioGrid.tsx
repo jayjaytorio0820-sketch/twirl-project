@@ -10,15 +10,15 @@ export default function PortfolioGrid({ items, limit }: { items: PortfolioItem[]
   const shown = items.filter((i) => f === 'all' || i.event_type === f).slice(0, limit ?? items.length);
   return (
     <>
-      <div className="filters" role="group" aria-label="I-filter ayon sa event">
+      <div className="filters" role="group" aria-label="Filter by event type">
         {FILTERS.map((k) => (
           <button key={k} className="chip" aria-pressed={f === k} onClick={() => setF(k)}>
-            {k === 'all' ? 'Lahat' : EVENT_LABELS[k]}
+            {k === 'all' ? 'All' : EVENT_LABELS[k]}
           </button>
         ))}
       </div>
       {shown.length === 0 ? (
-        <p className="muted">Wala pang naka-upload para sa event type na ito.</p>
+        <p className="muted">Nothing uploaded for this event type yet.</p>
       ) : (
         <div className="grid-portfolio">
           {shown.map((it, i) => (
@@ -33,7 +33,7 @@ export default function PortfolioGrid({ items, limit }: { items: PortfolioItem[]
               )}
               <figcaption className="cap">
                 <strong>{it.title}</strong>
-                <span>{it.venue ? `${EVENT_LABELS[it.event_type]} sa ${it.venue}` : EVENT_LABELS[it.event_type]}</span>
+                <span>{it.venue ? `${EVENT_LABELS[it.event_type]} at ${it.venue}` : EVENT_LABELS[it.event_type]}</span>
               </figcaption>
             </figure>
           ))}

@@ -4,7 +4,7 @@ import { sb } from '@/lib/admin';
 import { SITE } from '@/lib/placeholder';
 
 const FIELDS: [keyof typeof SITE, string, boolean?][] = [
-  ['business_name', 'Business name'], ['tagline', 'Tagline'], ['intro', 'Intro sa hero', true], ['award', 'Award'],
+  ['business_name', 'Business name'], ['tagline', 'Tagline'], ['intro', 'Hero intro', true], ['award', 'Award'],
   ['phone', 'Phone'], ['email', 'Email'], ['facebook', 'Facebook page link'], ['messenger', 'Messenger link (m.me/…)'], ['service_area', 'Service area'],
 ];
 
@@ -38,9 +38,9 @@ export default function ContentAdmin() {
           </div>
         ))}
         <div style={{ display: 'flex', gap: 'var(--s3)', alignItems: 'center' }}>
-          <button className="btn btn-primary" disabled={state === 'saving'}>{state === 'saving' ? 'Sine-save…' : 'I-save ang content'}</button>
-          {state === 'saved' && <span className="small" role="status">Na-save. Lalabas sa site sa loob ng ilang minuto.</span>}
-          {state === 'error' && <span className="field-error" role="alert">Hindi na-save. Subukan ulit.</span>}
+          <button className="btn btn-primary" disabled={state === 'saving'}>{state === 'saving' ? 'Saving…' : 'Save content'}</button>
+          {state === 'saved' && <span className="small" role="status">Saved. Changes show on the site within a few minutes.</span>}
+          {state === 'error' && <span className="field-error" role="alert">Not saved. Try again.</span>}
         </div>
       </form>
     </>

@@ -2,7 +2,7 @@
 export default function Orbit() {
   const ring = 'TWIRL PROJECT  •  360 VIDEO BOOTH  &  PHOTO BOOTH  •  TWIRL PROJECT  •  360 VIDEO BOOTH  •  ';
   return (
-    <div className="orbit" role="img" aria-label="Bride sa harap ng TWIRL Project backdrop, napapalibutan ng umiikot na 360 camera arm">
+    <div className="orbit" role="img" aria-label="A bride in front of the TWIRL Project backdrop, circled by a spinning 360 camera arm">
       <svg viewBox="0 0 520 520">
         <defs>
           <path id="ringPath" d="M260,260 m-232,0 a232,232 0 1,1 464,0 a232,232 0 1,1 -464,0" />

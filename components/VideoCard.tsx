@@ -5,7 +5,7 @@ import type { EventVideo } from '@/lib/types';
 // Bawat share ay may TWIRL branding sa text (libreng marketing).
 export default function VideoCard({ video, eventTitle, galleryUrl }: { video: EventVideo; eventTitle: string; galleryUrl: string }) {
   const [note, setNote] = useState('');
-  const shareText = `Ang 360 video ko sa ${eventTitle}! 🎥 360 booth by TWIRL Project, Most Outstanding 360 Video Booth Provider.`;
+  const shareText = `My 360 video from ${eventTitle}! 🎥 360 booth by TWIRL Project, Most Outstanding 360 Video Booth Provider.`;
   const demo = !video.url;
 
   async function share() {
@@ -17,9 +17,9 @@ export default function VideoCard({ video, eventTitle, galleryUrl }: { video: Ev
       }
       if (navigator.share) { await navigator.share({ title: 'TWIRL Project', text: shareText, url: galleryUrl }); return; }
       await navigator.clipboard.writeText(`${shareText} ${galleryUrl}`);
-      setNote('Nakopya ang link. I-paste sa post o chat.');
+      setNote('Link copied. Paste it in a post or chat.');
     } catch (e) {
-      if ((e as Error).name !== 'AbortError') setNote('Hindi na-share. I-download na lang at i-upload.');
+      if ((e as Error).name !== 'AbortError') setNote("Couldn't share. Download the video and upload it instead.");
     }
   }
 
@@ -41,9 +41,9 @@ export default function VideoCard({ video, eventTitle, galleryUrl }: { video: Ev
         <strong>{video.title}</strong>
         <div className="btns">
           {demo
-            ? <button className="btn btn-sm" disabled title="Sample lang sa preview">I-download</button>
-            : <a className="btn btn-sm" href={video.url} download>I-download</a>}
-          <button className="btn btn-sm btn-primary" onClick={share}>I-share</button>
+            ? <button className="btn btn-sm" disabled title="Sample only in the preview">Download</button>
+            : <a className="btn btn-sm" href={video.url} download>Download</a>}
+          <button className="btn btn-sm btn-primary" onClick={share}>Share</button>
         </div>
         {note && <p className="small muted" role="status">{note}</p>}
       </div>

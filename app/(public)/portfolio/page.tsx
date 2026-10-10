@@ -2,7 +2,7 @@ import PortfolioGrid from '@/components/PortfolioGrid';
 import CtaBand from '@/components/CtaBand';
 import { getPortfolio } from '@/lib/data';
 
-export const metadata = { title: 'Portfolio', description: 'Mga 360 video mula sa kasal, debut, corporate at school events ng TWIRL Project.' };
+export const metadata = { title: 'Portfolio', description: 'Photos and 360 videos from TWIRL Project weddings, debuts, corporate and school events.' };
 export const revalidate = 300;
 
 export default async function PortfolioPage() {
@@ -11,7 +11,7 @@ export default async function PortfolioPage() {
     <>
       <section className="page-head"><div className="wrap">
         <h1>Portfolio</h1>
-        <p className="prose">Piliin ang uri ng event para makita ang mga ikot na ginawa namin.</p>
+        <p className="prose">Pick an event type to see what we've shot.</p>
       </div></section>
       <section className="section" style={{ paddingTop: 'var(--s4)' }}><div className="wrap">
         <PortfolioGrid items={items} />

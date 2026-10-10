@@ -16,25 +16,25 @@ export default async function Home() {
       <section className="hero">
         <div className="wrap">
           <div>
-            <h1>Isang ikot, isang alaala.</h1>
+            <h1>Every spin, a memory.</h1>
             <p className="lede">{site.intro}</p>
             <div className="actions">
               <Link href="/book" className="btn btn-primary">Check availability</Link>
-              <Link href="/packages" className="btn">Tingnan ang packages</Link>
+              <Link href="/packages" className="btn">See packages</Link>
             </div>
             <p className="award-line"><AwardIcon /> {site.award}</p>
-            <p className="muted small" style={{ marginTop: 'var(--s2)' }}>{YEARS} taon nang umiikot sa mga event sa {site.service_area}.</p>
+            <p className="muted small" style={{ marginTop: 'var(--s2)' }}>{YEARS} years of spinning at events across {site.service_area}.</p>
           </div>
           <Orbit />
         </div>
       </section>
 
-      <section className="band night" aria-label="Mga event na napaglingkuran">
+      <section className="band night" aria-label="Events we have worked">
         <div className="wrap" style={{ paddingBlock: 'var(--s5)' }}>
           <div className="clients">
-            <span className="muted">Kasama kami sa</span>
+            <span className="muted">We've been part of</span>
             {NOTABLE_EVENTS.map((e) => <strong key={e}>{e}</strong>)}
-            <span className="muted">at marami pang kasal, debut at corporate night.</span>
+            <span className="muted">and many more weddings, debuts and corporate nights.</span>
           </div>
         </div>
       </section>
@@ -42,14 +42,14 @@ export default async function Home() {
       <section className="section">
         <div className="wrap">
           <div className="section-head">
-            <h2>Paano mag-book</h2>
-            <p>Apat na hakbang mula inquiry hanggang sa unang ikot sa event ninyo.</p>
+            <h2>How booking works</h2>
+            <p>Four steps from inquiry to the first spin at your event.</p>
           </div>
           <ol className="steps">
-            <li><h3>Pumili ng date</h3><p>Tingnan sa calendar kung bakante pa kami sa araw ng event.</p></li>
-            <li><h3>Mag-send ng inquiry</h3><p>Ilagay ang venue, uri ng event at oras. Sasagot kami sa loob ng isang araw.</p></li>
-            <li><h3>I-lock ang date</h3><p>Kapag bayad na ang downpayment, sa inyo na ang date na iyon.</p></li>
-            <li><h3>Twirl sa event</h3><p>Dumarating kami nang maaga para mag-setup. Pagkatapos ng event, i-scan lang ng guests ang QR code para makuha ang videos nila.</p></li>
+            <li><h3>Pick a date</h3><p>Check the calendar to see if we're free on your event day.</p></li>
+            <li><h3>Send an inquiry</h3><p>Tell us the venue, event type and time. We reply within a day.</p></li>
+            <li><h3>Lock in your date</h3><p>Once the downpayment is in, the date is yours.</p></li>
+            <li><h3>Twirl at the event</h3><p>We arrive early to set up. Guests scan the QR code to get their videos.</p></li>
           </ol>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default async function Home() {
         <div className="wrap">
           <div className="section-head">
             <h2>Packages</h2>
-            <p>Lahat ng package ay may QR event gallery, kaya hindi na kailangang mag-AirDrop isa-isa.</p>
+            <p>Every package includes a QR event gallery, so no more AirDropping videos one by one.</p>
           </div>
           <PackageCards packages={packages} />
         </div>
@@ -68,19 +68,19 @@ export default async function Home() {
         <div className="wrap services">
           <figure className="feature-photo" style={{ margin: 0 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/portfolio/booth-red-led.jpg" alt="TWIRL 360 platform na may red LED lights" loading="lazy" />
+            <img src="/images/portfolio/booth-red-led.jpg" alt="TWIRL 360 platform with red LED lights" loading="lazy" />
           </figure>
           <div>
             <h2>360 video booth</h2>
-            <p className="muted" style={{ marginTop: 'var(--s3)' }}>Tumatayo ang guests sa platform habang umiikot ang camera. Slow-mo, may overlay ng event ninyo, at nakukuha agad sa QR.</p>
+            <p className="muted" style={{ marginTop: 'var(--s3)' }}>Guests stand on the platform while the camera circles them. Slow-mo, an overlay with your event details, and ready to grab by QR.</p>
           </div>
           <figure className="feature-photo" style={{ margin: 0 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/portfolio/wedding-prints.jpg" alt="Printed photo booth strips mula sa isang kasal" loading="lazy" />
+            <img src="/images/portfolio/wedding-prints.jpg" alt="Printed photo booth strips from a wedding" loading="lazy" />
           </figure>
           <div>
             <h2>Photo booth</h2>
-            <p className="muted" style={{ marginTop: 'var(--s3)' }}>Printed strips na may disenyo ng event ninyo, para may maiuwing souvenir ang bawat guest. Pwedeng isabay sa 360 booth.</p>
+            <p className="muted" style={{ marginTop: 'var(--s3)' }}>Printed strips designed for your event, so every guest takes home a souvenir. Book it together with the 360 booth.</p>
           </div>
         </div>
       </section>
@@ -88,8 +88,8 @@ export default async function Home() {
       <section className="section band">
         <div className="wrap">
           <div className="section-head">
-            <h2>Mula sa mga event namin</h2>
-            <Link href="/portfolio" className="btn btn-sm">Buong portfolio</Link>
+            <h2>From our events</h2>
+            <Link href="/portfolio" className="btn btn-sm">Full portfolio</Link>
           </div>
           <PortfolioGrid items={portfolio} limit={10} />
         </div>
@@ -97,7 +97,7 @@ export default async function Home() {
 
       <section className="section">
         <div className="wrap">
-          <div className="section-head"><h2>Sabi ng mga client</h2></div>
+          <div className="section-head"><h2>What clients say</h2></div>
           <div className="quotes">
             {testimonials.map((t) => (
               <blockquote key={t.id}>

@@ -20,7 +20,7 @@ export default function Navbar() {
           <BrandMark />
         </Link>
         <button className="nav-toggle" aria-expanded={open} aria-controls="nav-links" onClick={() => setOpen(!open)}>
-          {open ? 'Isara' : 'Menu'}
+          {open ? 'Close' : 'Menu'}
         </button>
         <nav id="nav-links" className="nav-links" data-open={open}>
           {LINKS.map((l) => (

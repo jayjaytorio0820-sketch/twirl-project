@@ -24,10 +24,10 @@ export async function POST(req: Request) {
     notes: clean(body.notes, 2000) || null,
   };
 
-  if (b.name.length < 2 || b.phone.length < 7 || b.venue.length < 2) return NextResponse.json({ error: 'Kulang ang pangalan, mobile number o venue.' }, { status: 400 });
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(b.event_date)) return NextResponse.json({ error: 'Pumili ng date sa calendar.' }, { status: 400 });
-  if (!/^\d{2}:\d{2}$/.test(b.start_time) || !/^\d{2}:\d{2}$/.test(b.end_time) || b.end_time <= b.start_time) return NextResponse.json({ error: 'Pakitingnan ulit ang oras ng booth.' }, { status: 400 });
-  if (!TYPES.includes(b.event_type)) return NextResponse.json({ error: 'Pumili ng uri ng event.' }, { status: 400 });
+  if (b.name.length < 2 || b.phone.length < 7 || b.venue.length < 2) return NextResponse.json({ error: 'Please add your name, mobile number and venue.' }, { status: 400 });
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(b.event_date)) return NextResponse.json({ error: 'Pick a date on the calendar.' }, { status: 400 });
+  if (!/^\d{2}:\d{2}$/.test(b.start_time) || !/^\d{2}:\d{2}$/.test(b.end_time) || b.end_time <= b.start_time) return NextResponse.json({ error: 'Please check the booth start and end times.' }, { status: 400 });
+  if (!TYPES.includes(b.event_type)) return NextResponse.json({ error: 'Pick an event type.' }, { status: 400 });
 
   const sb = getSupabase();
   if (!sb) return NextResponse.json({ ok: true, demo: true });
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
   const { error } = await sb.from('bookings').insert(b);
   if (error) {
     console.error('booking insert', error.message);
-    return NextResponse.json({ error: 'Hindi na-save ang inquiry.' }, { status: 500 });
+    return NextResponse.json({ error: "We couldn't save your inquiry." }, { status: 500 });
   }
   await notifyNewInquiry(b).catch((e) => console.error('notify', e));
   return NextResponse.json({ ok: true });

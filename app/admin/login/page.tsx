@@ -14,7 +14,7 @@ export default function Login() {
     setBusy(true); setErr('');
     const { error } = await getSupabase()!.auth.signInWithPassword({ email: String(fd.get('email')), password: String(fd.get('password')) });
     setBusy(false);
-    if (error) setErr('Mali ang email o password.');
+    if (error) setErr('Wrong email or password.');
     else router.replace('/admin/dashboard');
   }
   return (
@@ -24,7 +24,7 @@ export default function Login() {
         <div className="field"><label htmlFor="email">Email</label><input id="email" name="email" type="email" className="input" required autoComplete="username" /></div>
         <div className="field"><label htmlFor="password">Password</label><input id="password" name="password" type="password" className="input" required autoComplete="current-password" /></div>
         {err && <p className="notice error" role="alert">{err}</p>}
-        <button className="btn btn-primary" disabled={busy}>{busy ? 'Nagla-log in…' : 'Mag-log in'}</button>
+        <button className="btn btn-primary" disabled={busy}>{busy ? 'Signing in…' : 'Sign in'}</button>
       </form>
     </div>
   );

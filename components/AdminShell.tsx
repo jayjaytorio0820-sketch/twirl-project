@@ -32,19 +32,19 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     return (
       <div className="wrap section" style={{ maxWidth: 640 }}>
         <h1 style={{ fontSize: '2rem' }}>Admin panel</h1>
-        <p className="notice warn" style={{ marginTop: 'var(--s4)' }}>Hindi pa naka-connect ang Supabase, kaya preview mode pa ito. Ilagay ang NEXT_PUBLIC_SUPABASE_URL at NEXT_PUBLIC_SUPABASE_ANON_KEY sa Vercel para gumana ang login at admin.</p>
-        <Link href="/" className="btn" style={{ marginTop: 'var(--s5)' }}>Bumalik sa site</Link>
+        <p className="notice warn" style={{ marginTop: 'var(--s4)' }}>Supabase isn't connected yet, so this is preview mode. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in Vercel to turn on login and the admin panel.</p>
+        <Link href="/" className="btn" style={{ marginTop: 'var(--s5)' }}>Back to site</Link>
       </div>
     );
   }
   if (isLogin) return <>{children}</>;
-  if (status === 'loading') return <p className="wrap section muted">Sinusuri ang login…</p>;
+  if (status === 'loading') return <p className="wrap section muted">Checking your login…</p>;
   if (status === 'denied') {
     return (
       <div className="wrap section" style={{ maxWidth: 560 }}>
-        <h1 style={{ fontSize: '2rem' }}>Walang admin access ang account na ito.</h1>
-        <p className="muted" style={{ marginTop: 'var(--s3)' }}>Hilingin sa owner na idagdag ka sa admins table.</p>
-        <button className="btn" style={{ marginTop: 'var(--s5)' }} onClick={async () => { await getSupabase()!.auth.signOut(); router.replace('/admin/login'); }}>Mag-sign out</button>
+        <h1 style={{ fontSize: '2rem' }}>This account doesn't have admin access.</h1>
+        <p className="muted" style={{ marginTop: 'var(--s3)' }}>Ask the owner to add you to the admins table.</p>
+        <button className="btn" style={{ marginTop: 'var(--s5)' }} onClick={async () => { await getSupabase()!.auth.signOut(); router.replace('/admin/login'); }}>Sign out</button>
       </div>
     );
   }
@@ -54,7 +54,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
         <Link href="/" className="brand"><BrandMark /></Link>
         <nav>{NAV.map(([h, l]) => <Link key={h} href={h} aria-current={path === h ? 'page' : undefined}>{l}</Link>)}</nav>
         <button className="btn btn-sm" style={{ borderColor: 'var(--mist)', color: 'var(--mist)', marginTop: 'auto' }}
-          onClick={async () => { await getSupabase()!.auth.signOut(); router.replace('/admin/login'); }}>Mag-sign out</button>
+          onClick={async () => { await getSupabase()!.auth.signOut(); router.replace('/admin/login'); }}>Sign out</button>
       </aside>
       <main className="admin-main">{children}</main>
     </div>

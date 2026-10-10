@@ -5,7 +5,7 @@ import { getSite } from '@/lib/data';
 import { FAQS, NOTABLE_EVENTS } from '@/lib/placeholder';
 
 export const revalidate = 300;
-export const metadata = { title: 'About at FAQ', description: 'Kilalanin ang TWIRL Project, Most Outstanding 360 Video Booth Provider.' };
+export const metadata = { title: 'About and FAQ', description: 'Meet TWIRL Project, Most Outstanding 360 Video Booth Provider.' };
 
 export default async function AboutPage() {
   const site = await getSite();
@@ -16,14 +16,14 @@ export default async function AboutPage() {
   return (
     <>
       <section className="page-head"><div className="wrap">
-        <h1>Tungkol sa TWIRL</h1>
-        <p className="prose">{/* PLACEHOLDER: kuwento ng TWIRL Project */}Apat na taon nang umiikot ang TWIRL Project sa mga kasal, debut, reunion, awards night at school events sa Pampanga at kalapit na lugar. 360 video booth at photo booth, inaasikaso ng team na mahal ang ginagawa nila.</p>
+        <h1>About TWIRL</h1>
+        <p className="prose">{/* PLACEHOLDER: kuwento ng TWIRL Project */}For four years, TWIRL Project has been spinning at weddings, debuts, reunions, awards nights and school events across Pampanga and nearby areas. A 360 video booth and photo booth, run by a team that loves what they do.</p>
       </div></section>
 
       <section className="section" style={{ paddingTop: 0 }}><div className="wrap">
         <figure className="feature-photo" style={{ margin: 0, aspectRatio: '16 / 9' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/hero/wedding-arch.jpg" alt="Floral arch entrance na may TWIRL Project backdrop sa dulo ng venue" />
+          <img src="/images/hero/wedding-arch.jpg" alt="Floral arch entrance with the TWIRL Project backdrop at the end of the venue" />
         </figure>
       </div></section>
 
@@ -31,10 +31,10 @@ export default async function AboutPage() {
         <div>
           <p className="award-line" style={{ marginTop: 0 }}><AwardIcon /> Award</p>
           <h2 style={{ marginTop: 'var(--s3)' }}>{site.award}</h2>
-          <p className="muted" style={{ marginTop: 'var(--s3)' }}>Placeholder: ilagay dito kung sino ang nagbigay ng award at kailan, kasama ang photo ng certificate.</p>
+          <p className="muted" style={{ marginTop: 'var(--s3)' }}>Placeholder: who gave the award and when, with a photo of the certificate.</p>
         </div>
         <div>
-          <h3>Ilan sa mga event</h3>
+          <h3>Some of our events</h3>
           <ul style={{ paddingLeft: '1.1rem', marginTop: 'var(--s3)' }}>
             {NOTABLE_EVENTS.map((e) => <li key={e}>{e}</li>)}
           </ul>
@@ -44,7 +44,7 @@ export default async function AboutPage() {
       </div></section>
 
       <section className="section"><div className="wrap" style={{ maxWidth: 820 }}>
-        <h2 style={{ marginBottom: 'var(--s5)' }}>Mga madalas itanong</h2>
+        <h2 style={{ marginBottom: 'var(--s5)' }}>Frequently asked questions</h2>
         <FAQList items={FAQS} />
       </div></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />

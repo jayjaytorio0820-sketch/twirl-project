@@ -8,7 +8,7 @@ export default function Footer({ site }: { site: SiteContent }) {
       <div className="wrap">
         <div>
           <Link href="/" className="brand"><BrandMark /></Link>
-          <p style={{ marginTop: 'var(--s3)', maxWidth: '40ch' }}>360 video booth at photo booth. {site.award}. Nagse-serve sa {site.service_area}.</p>
+          <p style={{ marginTop: 'var(--s3)', maxWidth: '40ch' }}>360 video booth and photo booth. {site.award}. Serving {site.service_area}.</p>
         </div>
         <div>
           <h3>Site</h3>
@@ -16,7 +16,7 @@ export default function Footer({ site }: { site: SiteContent }) {
             <li><Link href="/packages">Packages</Link></li>
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><Link href="/book">Check availability</Link></li>
-            <li><Link href="/about">About at FAQ</Link></li>
+            <li><Link href="/about">About and FAQ</Link></li>
           </ul>
         </div>
         <div>
@@ -25,7 +25,7 @@ export default function Footer({ site }: { site: SiteContent }) {
             <li><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>
             {site.email && <li><a href={`mailto:${site.email}`}>{site.email}</a></li>}
             <li><a href={site.facebook} target="_blank" rel="noopener">Facebook page</a></li>
-            <li><a href={site.messenger} target="_blank" rel="noopener">Message sa Messenger</a></li>
+            <li><a href={site.messenger} target="_blank" rel="noopener">Message on Messenger</a></li>
           </ul>
         </div>
       </div>

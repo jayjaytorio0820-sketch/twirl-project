@@ -22,33 +22,33 @@ export default function CalendarAdmin() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const { error } = await sb().from('blocked_dates').upsert({ d: String(fd.get('d')), reason: String(fd.get('reason') || '') });
-    if (error) setErr('Hindi na-block ang date.'); else { setErr(''); e.currentTarget.reset(); load(); }
+    if (error) setErr("The date wasn't blocked."); else { setErr(''); e.currentTarget.reset(); load(); }
   }
   async function unblock(d: string) {
     const { error } = await sb().from('blocked_dates').delete().eq('d', d);
-    if (error) setErr('Hindi na-unblock ang date.'); else load();
+    if (error) setErr("The date wasn't unblocked."); else load();
   }
 
   return (
     <>
       <h1>Calendar</h1>
-      <p className="muted" style={{ marginBottom: 'var(--s5)' }}>Awtomatikong lumalabas na booked sa public calendar ang mga confirmed booking. I-block dito ang ibang araw na hindi kayo available.</p>
+      <p className="muted" style={{ marginBottom: 'var(--s5)' }}>Confirmed bookings show as booked on the public calendar automatically. Block any other days you're unavailable here.</p>
       <form className="panel form" onSubmit={add} style={{ maxWidth: 520, marginBottom: 'var(--s6)' }}>
         <div className="row">
           <div className="field"><label htmlFor="d">Date</label><input id="d" name="d" type="date" min={today} required className="input" /></div>
-          <div className="field"><label htmlFor="reason">Dahilan <span className="hint">(private)</span></label><input id="reason" name="reason" className="input" placeholder="Hal. day off" /></div>
+          <div className="field"><label htmlFor="reason">Reason <span className="hint">(private)</span></label><input id="reason" name="reason" className="input" placeholder="e.g. day off" /></div>
         </div>
-        <button className="btn btn-primary">I-block ang date</button>
+        <button className="btn btn-primary">Block date</button>
       </form>
       {err && <p className="notice error">{err}</p>}
       <div style={{ display: 'grid', gap: 'var(--s6)', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
-        <div><h2 style={{ fontSize: '1.2rem' }}>Naka-block</h2>
-          {blocked.length === 0 ? <p className="muted">Walang naka-block na date.</p> : blocked.map((b) => (
-            <div key={b.d} className="list-row"><span>{shortDate(b.d)}{b.reason && <span className="muted">, {b.reason}</span>}</span><button className="btn btn-sm" onClick={() => unblock(b.d)}>I-unblock</button></div>
+        <div><h2 style={{ fontSize: '1.2rem' }}>Blocked</h2>
+          {blocked.length === 0 ? <p className="muted">No blocked dates.</p> : blocked.map((b) => (
+            <div key={b.d} className="list-row"><span>{shortDate(b.d)}{b.reason && <span className="muted">, {b.reason}</span>}</span><button className="btn btn-sm" onClick={() => unblock(b.d)}>Unblock</button></div>
           ))}
         </div>
         <div><h2 style={{ fontSize: '1.2rem' }}>Confirmed bookings</h2>
-          {booked.length === 0 ? <p className="muted">Wala pang confirmed na upcoming event.</p> : booked.map((b, i) => (
+          {booked.length === 0 ? <p className="muted">No confirmed upcoming events yet.</p> : booked.map((b, i) => (
             <div key={i} className="list-row"><span>{shortDate(b.event_date)}</span><span className="muted">{b.name}</span></div>
           ))}
         </div>

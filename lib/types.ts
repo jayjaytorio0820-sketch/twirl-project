@@ -6,7 +6,7 @@ export const EVENT_LABELS: Record<EventType, string> = {
   corporate: 'Corporate',
   school: 'School event',
   birthday: 'Birthday',
-  other: 'Iba pa',
+  other: 'Other',
 };
 
 export type Package = {

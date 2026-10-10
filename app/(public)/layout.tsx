@@ -7,7 +7,7 @@ export default async function PublicLayout({ children }: { children: React.React
   const site = await getSite();
   return (
     <>
-      {!isSupabaseConfigured && <div className="preview-flag">Preview ng Stallion para sa TWIRL Project. Placeholder pa ang ilang content.</div>}
+      {!isSupabaseConfigured && <div className="preview-flag">Website preview by Stallion for TWIRL Project. Some content is still placeholder.</div>}
       <Navbar />
       <main>{children}</main>
       <Footer site={site} />

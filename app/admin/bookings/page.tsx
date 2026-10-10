@@ -4,7 +4,7 @@ import { sb, shortDate } from '@/lib/admin';
 import { EVENT_LABELS, type Booking } from '@/lib/types';
 
 const STATUSES: Booking['status'][] = ['new', 'confirmed', 'done', 'cancelled'];
-const LABEL = { new: 'Bago', confirmed: 'Confirmed', done: 'Tapos na', cancelled: 'Cancelled' };
+const LABEL = { new: 'New', confirmed: 'Confirmed', done: 'Done', cancelled: 'Cancelled' };
 
 export default function Bookings() {
   const [rows, setRows] = useState<Booking[]>([]);
@@ -16,7 +16,7 @@ export default function Bookings() {
   async function setStatus(id: string, status: Booking['status']) {
     setErr('');
     const { error } = await sb().from('bookings').update({ status }).eq('id', id);
-    if (error) setErr('Hindi na-update ang status. Subukan ulit.');
+    if (error) setErr("Status wasn't updated. Try again.");
     else setRows((r) => r.map((x) => (x.id === id ? { ...x, status } : x)));
   }
 
@@ -26,13 +26,13 @@ export default function Bookings() {
       <h1>Bookings</h1>
       <div className="filters">
         {(['all', ...STATUSES] as const).map((s) => (
-          <button key={s} className="chip" aria-pressed={filter === s} onClick={() => setFilter(s)}>{s === 'all' ? 'Lahat' : LABEL[s]}</button>
+          <button key={s} className="chip" aria-pressed={filter === s} onClick={() => setFilter(s)}>{s === 'all' ? 'All' : LABEL[s]}</button>
         ))}
       </div>
       {err && <p className="notice error">{err}</p>}
-      {shown.length === 0 ? <p className="muted">Walang booking sa filter na ito.</p> : (
+      {shown.length === 0 ? <p className="muted">No bookings match this filter.</p> : (
         <div className="table-wrap"><table>
-          <thead><tr><th>Date</th><th>Client</th><th>Event</th><th>Oras</th><th>Package</th><th>Status</th></tr></thead>
+          <thead><tr><th>Date</th><th>Client</th><th>Event</th><th>Time</th><th>Package</th><th>Status</th></tr></thead>
           <tbody>{shown.map((r) => (
             <tr key={r.id}>
               <td>{shortDate(r.event_date)}</td>
@@ -42,7 +42,7 @@ export default function Bookings() {
               <td>{r.package_id ?? '—'}{r.guests ? <><br /><span className="small muted">{r.guests} guests</span></> : null}</td>
               <td>
                 <span className={`status ${r.status}`}>{LABEL[r.status]}</span>
-                <select className="input" style={{ marginTop: 6, padding: '.35rem' }} value={r.status} aria-label="Palitan ang status" onChange={(e) => setStatus(r.id, e.target.value as Booking['status'])}>
+                <select className="input" style={{ marginTop: 6, padding: '.35rem' }} value={r.status} aria-label="Change status" onChange={(e) => setStatus(r.id, e.target.value as Booking['status'])}>
                   {STATUSES.map((s) => <option key={s} value={s}>{LABEL[s]}</option>)}
                 </select>
               </td>

@@ -18,7 +18,7 @@ export default function PackagesAdmin() {
       inclusions: String(fd.get('inclusions')).split('\n').map((s) => s.trim()).filter(Boolean),
     };
     const { error } = await sb().from('packages').update(patch).eq('id', id);
-    if (error) { setErr('Hindi na-save ang package.'); setSaved(''); } else { setErr(''); setSaved(id); }
+    if (error) { setErr("The package wasn't saved."); setSaved(''); } else { setErr(''); setSaved(id); }
   }
 
   return (
@@ -29,18 +29,18 @@ export default function PackagesAdmin() {
         {rows.map((p) => (
           <form key={p.id} className="panel form" onSubmit={(e) => save(e, p.id)}>
             <div className="row">
-              <div className="field"><label>Pangalan</label><input name="name" defaultValue={p.name} className="input" /></div>
-              <div className="field"><label>Oras</label><input name="hours" type="number" min={1} defaultValue={p.hours} className="input" /></div>
+              <div className="field"><label>Name</label><input name="name" defaultValue={p.name} className="input" /></div>
+              <div className="field"><label>Hours</label><input name="hours" type="number" min={1} defaultValue={p.hours} className="input" /></div>
             </div>
-            <div className="field"><label>Maikling description</label><input name="summary" defaultValue={p.summary} className="input" /></div>
-            <div className="field"><label>Inclusions <span className="hint">(isa bawat linya)</span></label><textarea name="inclusions" defaultValue={p.inclusions.join('\n')} className="input" /></div>
+            <div className="field"><label>Short description</label><input name="summary" defaultValue={p.summary} className="input" /></div>
+            <div className="field"><label>Inclusions <span className="hint">(one per line)</span></label><textarea name="inclusions" defaultValue={p.inclusions.join('\n')} className="input" /></div>
             <div className="row">
-              <div className="field"><label>Presyo o label</label><input name="price_label" defaultValue={p.price_label} className="input" /></div>
-              <label className="field" style={{ alignContent: 'end' }}><span><input type="checkbox" name="featured" defaultChecked={p.featured} /> Ipakita bilang pinakakinukuha</span></label>
+              <div className="field"><label>Price or label</label><input name="price_label" defaultValue={p.price_label} className="input" /></div>
+              <label className="field" style={{ alignContent: 'end' }}><span><input type="checkbox" name="featured" defaultChecked={p.featured} /> Show as most booked</span></label>
             </div>
             <div style={{ display: 'flex', gap: 'var(--s3)', alignItems: 'center' }}>
-              <button className="btn btn-primary btn-sm">I-save ang {p.name}</button>
-              {saved === p.id && <span className="small" role="status">Na-save.</span>}
+              <button className="btn btn-primary btn-sm">Save {p.name}</button>
+              {saved === p.id && <span className="small" role="status">Saved.</span>}
             </div>
           </form>
         ))}
