@@ -28,10 +28,10 @@ export default function VideoCard({ video, eventTitle, galleryUrl }: { video: Ev
       <div className="thumb">
         {demo ? (
           <svg viewBox="0 0 90 160" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="90" height="160" fill="#22123A" />
-            <ellipse cx="45" cy="80" rx="34" ry="10" fill="none" stroke="#1FA6B3" strokeWidth="1.2" />
-            <circle cx="45" cy="80" r="4" fill="#D6336C" />
-            <text x="45" y="148" textAnchor="middle" fontSize="6" fill="#DCD6E8" fontFamily="sans-serif">TWIRL PROJECT</text>
+            <rect width="90" height="160" fill="#0D0B08" />
+            <ellipse cx="45" cy="80" rx="34" ry="10" fill="none" stroke="#D4AF37" strokeWidth="1.2" />
+            <circle cx="45" cy="80" r="4" fill="#F2D272" />
+            <text x="45" y="148" textAnchor="middle" fontSize="6" fill="#D4AF37" fontFamily="sans-serif">TWIRL PROJECT</text>
           </svg>
         ) : (
           <video src={video.url} poster={video.thumb ?? undefined} controls playsInline preload="metadata" />

@@ -6,16 +6,18 @@ export const SITE: SiteContent = {
   business_name: 'TWIRL Project',
   tagline: 'Isang ikot, isang alaala.',
   intro:
-    '360 video booth para sa kasal, debut, corporate night at school events. Umiikot ang camera, kayo ang bida, at bago matapos ang gabi, nasa phone na ng guests ang video nila.',
+    '360 video booth at photo booth para sa kasal, debut, corporate night at school events sa Pampanga at kalapit na lugar. Umiikot ang camera, kayo ang bida, at bago matapos ang gabi, nasa phone na ng guests ang video nila.',
   award: 'Most Outstanding 360 Video Booth Provider',
-  phone: '0900 000 0000', // PLACEHOLDER
-  email: 'hello@twirlproject.ph', // PLACEHOLDER
+  phone: '0935 780 2687',
+  email: '', // Wala pang email sa FB page; nakatago sa site hangga't blangko
   facebook: 'https://www.facebook.com/share/1FBxmwisou/',
-  messenger: 'https://m.me/', // PLACEHOLDER: ilagay ang m.me/<page>
-  service_area: 'Metro Manila at kalapit na probinsya', // PLACEHOLDER
+  messenger: 'https://www.facebook.com/share/1FBxmwisou/', // PLACEHOLDER: palitan ng m.me/<page username>
+  service_area: 'Pampanga at kalapit na lugar',
 };
 
-export const NOTABLE_EVENTS = ['Bojo & Anna Wedding', 'Aero Night sa Widus'];
+export const YEARS = 4;
+
+export const NOTABLE_EVENTS = ['Bojo & Anna Wedding', 'Aero Night 2026 sa Widus', 'SBITC Awards Night 2026', 'UAP Clark'];
 
 export const PACKAGES: Package[] = [
   {
@@ -40,15 +42,28 @@ export const PACKAGES: Package[] = [
 
 export const ADDONS = ['Dagdag na oras', 'Custom backdrop', 'Red carpet at stanchions', 'Same-day highlight reel', 'Out-of-town setup']; // PLACEHOLDER
 
+// Mga photo mula sa FB page ng TWIRL Project. Placeholder ang ilang label ng event.
 export const PORTFOLIO: PortfolioItem[] = [
-  { id: 'p1', title: 'Bojo & Anna', event_type: 'wedding', venue: 'Venue (placeholder)', media_url: null, event_date: null },
-  { id: 'p2', title: 'Aero Night', event_type: 'corporate', venue: 'Widus', media_url: null, event_date: null },
-  { id: 'p3', title: 'Debut ni Sofia (sample)', event_type: 'debut', venue: 'Venue (placeholder)', media_url: null, event_date: null },
-  { id: 'p4', title: 'Year-end Party (sample)', event_type: 'corporate', venue: 'Venue (placeholder)', media_url: null, event_date: null },
-  { id: 'p5', title: 'Senior Prom (sample)', event_type: 'school', venue: 'Venue (placeholder)', media_url: null, event_date: null },
-  { id: 'p6', title: 'Garden Wedding (sample)', event_type: 'wedding', venue: 'Venue (placeholder)', media_url: null, event_date: null },
-  { id: 'p7', title: '18th Birthday (sample)', event_type: 'debut', venue: 'Venue (placeholder)', media_url: null, event_date: null },
-  { id: 'p8', title: 'Foundation Day (sample)', event_type: 'school', venue: 'Venue (placeholder)', media_url: null, event_date: null },
+  { id: 'p1', title: 'Bride sa TWIRL backdrop', event_type: 'wedding', venue: '', media_url: '/images/portfolio/bride-backdrop.jpg', event_date: null },
+  { id: 'p2', title: 'Mr. & Mrs.', event_type: 'wedding', venue: '', media_url: '/images/portfolio/wedding-couple.jpg', event_date: null },
+  { id: 'p3', title: 'Bridesmaids', event_type: 'wedding', venue: '', media_url: '/images/portfolio/bridesmaids.jpg', event_date: null },
+  { id: 'p4', title: 'Photo booth prints', event_type: 'wedding', venue: '', media_url: '/images/portfolio/wedding-prints.jpg', event_date: null },
+  { id: 'p5', title: 'Aero Night 2026', event_type: 'corporate', venue: 'Widus', media_url: '/images/portfolio/aero-night-ladies.jpg', event_date: null },
+  { id: 'p6', title: 'Aero Night 2026', event_type: 'corporate', venue: 'Widus', media_url: '/images/portfolio/aero-night-gents.jpg', event_date: null },
+  { id: 'p7', title: 'Formal night', event_type: 'corporate', venue: '', media_url: '/images/portfolio/barong-gents.jpg', event_date: null },
+  { id: 'p8', title: 'Formal night', event_type: 'corporate', venue: '', media_url: '/images/portfolio/barong-ladies.jpg', event_date: null },
+  { id: 'p9', title: '50th celebration', event_type: 'birthday', venue: '', media_url: '/images/portfolio/red-gown-led.jpg', event_date: null },
+  { id: 'p10', title: 'Party night', event_type: 'birthday', venue: '', media_url: '/images/portfolio/couple-red-led.jpg', event_date: null },
+  { id: 'p11', title: 'Debut', event_type: 'debut', venue: '', media_url: '/images/portfolio/debut-friends.jpg', event_date: null },
+  { id: 'p12', title: 'Debut setup', event_type: 'debut', venue: '', media_url: '/images/portfolio/debut-venue.jpg', event_date: null },
+  { id: 'p13', title: 'School event', event_type: 'school', venue: '', media_url: '/images/portfolio/school-crowd-booth.jpg', event_date: null },
+  { id: 'p14', title: 'School event', event_type: 'school', venue: '', media_url: '/images/portfolio/school-pink.jpg', event_date: null },
+  { id: 'p15', title: 'Team photo', event_type: 'school', venue: '', media_url: '/images/portfolio/purple-team.jpg', event_date: null },
+  { id: 'p16', title: 'Teachers celebration', event_type: 'school', venue: '', media_url: '/images/portfolio/teachers-day.jpg', event_date: null },
+  { id: 'p17', title: 'Photo booth prints', event_type: 'school', venue: '', media_url: '/images/portfolio/school-prints.jpg', event_date: null },
+  { id: 'p18', title: 'LED 360 platform', event_type: 'other', venue: '', media_url: '/images/portfolio/booth-red-led.jpg', event_date: null },
+  { id: 'p19', title: 'Outdoor setup', event_type: 'other', venue: '', media_url: '/images/portfolio/outdoor-setup.jpg', event_date: null },
+  { id: 'p20', title: 'UAP Clark', event_type: 'corporate', venue: '', media_url: '/images/portfolio/uap-clark-phone.jpg', event_date: null },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -61,7 +76,8 @@ export const FAQS: FAQ[] = [
   { q: 'Gaano kalaking space ang kailangan?', a: 'Mga 3m x 3m para sa platform at sa ikot ng arm, plus isang saksakan malapit sa booth. (Placeholder: kumpirmahin sa TWIRL.)' },
   { q: 'Ilang oras bago ang event kayo dumarating?', a: 'Isang oras bago ang call time para sa setup at test shots. (Placeholder)' },
   { q: 'Paano makukuha ng guests ang videos nila?', a: 'May QR code sa booth at sa tables. I-scan lang at lalabas ang event gallery kung saan pwedeng i-download o i-share ang video.' },
-  { q: 'Nag-o-out-of-town ba kayo?', a: 'Oo, may dagdag na transportation fee depende sa lugar. (Placeholder)' },
+  { q: 'Saan kayo nagse-serve?', a: 'Pampanga at mga kalapit na lugar. Para sa mas malayong venue, mag-message para sa transportation fee. (Placeholder: kumpirmahin ang fee sa TWIRL.)' },
+  { q: 'May photo booth din ba kayo?', a: 'Oo. Bukod sa 360 video booth, may photo booth din na may printed strips, at pwedeng pagsabayin sa isang event.' },
   { q: 'Paano mag-reserve ng date?', a: 'Mag-send ng inquiry sa Book page. Sasagot kami para kumpirmahin ang package at downpayment. Kapag bayad na ang downpayment, naka-lock na ang date ninyo.' },
 ];
 

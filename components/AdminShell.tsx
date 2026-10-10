@@ -51,7 +51,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
   return (
     <div className="admin-shell">
       <aside className="admin-side">
-        <Link href="/" className="brand" style={{ color: '#fff' }}><BrandMark /> TWIRL</Link>
+        <Link href="/" className="brand"><BrandMark /></Link>
         <nav>{NAV.map(([h, l]) => <Link key={h} href={h} aria-current={path === h ? 'page' : undefined}>{l}</Link>)}</nav>
         <button className="btn btn-sm" style={{ borderColor: 'var(--mist)', color: 'var(--mist)', marginTop: 'auto' }}
           onClick={async () => { await getSupabase()!.auth.signOut(); router.replace('/admin/login'); }}>Mag-sign out</button>

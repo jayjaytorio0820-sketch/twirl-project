@@ -1,37 +1,25 @@
-// Hero signature: ang 360 platform na may umiikot na camera arm.
+// Hero signature: ang 360 platform na may umiikot na gold arm, may totoong photo ng TWIRL sa gitna.
 export default function Orbit() {
-  const ring = 'TWIRL PROJECT  •  360 VIDEO BOOTH  •  TWIRL PROJECT  •  360 VIDEO BOOTH  •  ';
+  const ring = 'TWIRL PROJECT  •  360 VIDEO BOOTH  &  PHOTO BOOTH  •  TWIRL PROJECT  •  360 VIDEO BOOTH  •  ';
   return (
-    <div className="orbit" role="img" aria-label="360 video booth platform na may umiikot na camera">
+    <div className="orbit" role="img" aria-label="Bride sa harap ng TWIRL Project backdrop, napapalibutan ng umiikot na 360 camera arm">
       <svg viewBox="0 0 520 520">
         <defs>
           <path id="ringPath" d="M260,260 m-232,0 a232,232 0 1,1 464,0 a232,232 0 1,1 -464,0" />
-          <radialGradient id="stage" cx="50%" cy="45%" r="60%">
-            <stop offset="0" stopColor="#FFFFFF" />
-            <stop offset="1" stopColor="#E6E0F0" />
-          </radialGradient>
+          <clipPath id="stageClip"><circle cx="260" cy="260" r="186" /></clipPath>
+          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#F2D272" /><stop offset="0.5" stopColor="#D4AF37" /><stop offset="1" stopColor="#8C6A12" />
+          </linearGradient>
         </defs>
         <g className="ring">
-          <text className="ring-text"><textPath href="#ringPath">{ring}</textPath></text>
+          <text className="ring-text" style={{ fill: '#D4AF37' }}><textPath href="#ringPath">{ring}</textPath></text>
         </g>
-        {/* platform */}
-        <circle cx="260" cy="260" r="190" fill="url(#stage)" stroke="#22123A" strokeWidth="2" />
-        <circle cx="260" cy="260" r="150" fill="none" stroke="#DCD6E8" strokeWidth="1.5" strokeDasharray="3 9" />
-        <circle cx="260" cy="260" r="96" fill="#22123A" />
-        <circle cx="260" cy="260" r="96" fill="none" stroke="#1FA6B3" strokeWidth="3" strokeDasharray="2 10" />
-        {/* guests (abstract) */}
-        <g fill="#F3F1F8">
-          <circle cx="236" cy="246" r="15" /><rect x="220" y="264" width="32" height="40" rx="14" />
-          <circle cx="284" cy="244" r="15" /><rect x="268" y="262" width="32" height="42" rx="14" />
-        </g>
-        {/* arm + camera */}
+        <image href="/images/portfolio/bride-backdrop.jpg" x="74" y="74" width="372" height="372" preserveAspectRatio="xMidYMid slice" clipPath="url(#stageClip)" />
+        <circle cx="260" cy="260" r="188" fill="none" stroke="url(#goldGrad)" strokeWidth="5" />
+        <circle cx="260" cy="260" r="200" fill="none" stroke="#D4AF37" strokeOpacity="0.35" strokeWidth="1" strokeDasharray="2 8" />
         <g className="arm">
-          <line x1="260" y1="260" x2="260" y2="58" stroke="#22123A" strokeWidth="6" strokeLinecap="round" />
-          <circle cx="260" cy="260" r="12" fill="#D6336C" />
-          <rect x="238" y="34" width="44" height="34" rx="8" fill="#22123A" />
-          <circle cx="260" cy="51" r="9" fill="#1FA6B3" />
-          <circle cx="260" cy="51" r="4" fill="#22123A" />
-          <path d="M260 70 L214 200 L306 200 Z" fill="#1FA6B3" opacity="0.12" />
+          <circle cx="260" cy="60" r="16" fill="#0D0B08" stroke="url(#goldGrad)" strokeWidth="4" />
+          <circle cx="260" cy="60" r="6" fill="#F2D272" />
         </g>
       </svg>
     </div>

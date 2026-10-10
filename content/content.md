@@ -1,16 +1,21 @@
 # TWIRL Project, content status
 
-Lahat ng nasa ibaba ay PLACEHOLDER sa preview (lib/placeholder.ts). Papalitan kapag nag-send na ang TWIRL ng files, o ie-edit sa /admin.
+## Galing na sa FB page nila (totoo)
+- Logo (public/images/logo, favicon, OG image)
+- 20 event photos (public/images/portfolio), 2 feature photos (public/images/hero)
+- Phone: 0935-780-2687
+- Service area: Pampanga at kalapit na lugar
+- 4 na taon na, 360 video booth at photo booth
+- Events: Aero Night 2026, SBITC Awards Night 2026, UAP Clark; Bojo & Anna Wedding (mula sa pitch)
 
-- [ ] Logo (components/BrandMark.tsx, public/icon.svg, public/og.svg)
-- [ ] Phone, email, Messenger link, service area
-- [ ] Package inclusions at rates (kasalukuyang "Rate on request")
-- [ ] Add-ons list
-- [ ] Portfolio videos (abstract art muna ang nakalagay)
+## Placeholder pa
+- [ ] Email (nakatago sa site hangga't wala)
+- [ ] Messenger link (m.me/<page username>), naka-FB page link muna
+- [ ] Package inclusions at rates ("Rate on request")
+- [ ] Mga label ng portfolio photos (hula mula sa photo)
 - [ ] Testimonials (3 placeholder)
-- [ ] FAQ answers (space, setup time, out-of-town)
-- [ ] Award details at certificate photo
-- [ ] About story
-- [ ] Brand colors/fonts (Stallion palette muna)
+- [ ] FAQ: space, setup time, transportation fee
+- [ ] Award details (sino nagbigay, kailan) + certificate photo
+- [ ] 360 videos para sa portfolio (photos muna ngayon)
 
-Totoo na: business name, award title, Bojo & Anna Wedding, Aero Night sa Widus, FB page link.
+Note: mga screenshot ang pinagkunan ng photos (mga 410px). Palitan ng original files kapag nag-send ang TWIRL para mas malinaw.

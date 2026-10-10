@@ -7,5 +7,5 @@ export function galleryUrl(code: string) {
 }
 
 export function qrDataUrl(text: string) {
-  return QRCode.toDataURL(text, { margin: 1, width: 640, color: { dark: '#22123A', light: '#FFFFFF' } });
+  return QRCode.toDataURL(text, { margin: 1, width: 640, color: { dark: '#0D0B08', light: '#FFFFFF' } });
 }

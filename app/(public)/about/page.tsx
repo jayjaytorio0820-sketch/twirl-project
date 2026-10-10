@@ -17,7 +17,14 @@ export default async function AboutPage() {
     <>
       <section className="page-head"><div className="wrap">
         <h1>Tungkol sa TWIRL</h1>
-        <p className="prose">{/* PLACEHOLDER: kuwento ng TWIRL Project */}Nagsimula ang TWIRL Project sa isang simpleng ideya: bawat guest ay dapat may sariling sandali sa gitna ng event. Ngayon, umiikot na kami sa mga kasal, debut, corporate night at school events.</p>
+        <p className="prose">{/* PLACEHOLDER: kuwento ng TWIRL Project */}Apat na taon nang umiikot ang TWIRL Project sa mga kasal, debut, reunion, awards night at school events sa Pampanga at kalapit na lugar. 360 video booth at photo booth, inaasikaso ng team na mahal ang ginagawa nila.</p>
+      </div></section>
+
+      <section className="section" style={{ paddingTop: 0 }}><div className="wrap">
+        <figure className="feature-photo" style={{ margin: 0, aspectRatio: '16 / 9' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/hero/wedding-arch.jpg" alt="Floral arch entrance na may TWIRL Project backdrop sa dulo ng venue" />
+        </figure>
       </div></section>
 
       <section className="section band"><div className="wrap" style={{ display: 'grid', gap: 'var(--s6)', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>

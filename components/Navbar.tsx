@@ -17,7 +17,7 @@ export default function Navbar() {
     <header className="nav">
       <div className="wrap">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <BrandMark /> TWIRL Project
+          <BrandMark />
         </Link>
         <button className="nav-toggle" aria-expanded={open} aria-controls="nav-links" onClick={() => setOpen(!open)}>
           {open ? 'Isara' : 'Menu'}

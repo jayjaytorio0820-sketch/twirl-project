@@ -7,8 +7,8 @@ export default function Footer({ site }: { site: SiteContent }) {
     <footer className="footer">
       <div className="wrap">
         <div>
-          <Link href="/" className="brand"><BrandMark /> {site.business_name}</Link>
-          <p style={{ marginTop: 'var(--s3)', maxWidth: '40ch' }}>{site.award}. Serving {site.service_area}.</p>
+          <Link href="/" className="brand"><BrandMark /></Link>
+          <p style={{ marginTop: 'var(--s3)', maxWidth: '40ch' }}>360 video booth at photo booth. {site.award}. Nagse-serve sa {site.service_area}.</p>
         </div>
         <div>
           <h3>Site</h3>
@@ -23,7 +23,7 @@ export default function Footer({ site }: { site: SiteContent }) {
           <h3>Contact</h3>
           <ul>
             <li><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>
-            <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+            {site.email && <li><a href={`mailto:${site.email}`}>{site.email}</a></li>}
             <li><a href={site.facebook} target="_blank" rel="noopener">Facebook page</a></li>
             <li><a href={site.messenger} target="_blank" rel="noopener">Message sa Messenger</a></li>
           </ul>
